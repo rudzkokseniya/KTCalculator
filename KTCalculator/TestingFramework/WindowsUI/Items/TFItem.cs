@@ -10,6 +10,7 @@ using TestStack.White.UIItems.Actions;
 using TestStack.White.UIItems.Scrolling;
 using TestStack.White.UIItems.WPFUIItems;
 using TestStack.White.WindowsAPI;
+using TestingFramework.Logging;
 
 namespace TestingFramework.WindowsUI.Items
 {
@@ -43,8 +44,10 @@ namespace TestingFramework.WindowsUI.Items
             {
                 if (!this.UIItem.Visible)
                 {
+                    LogHelper.GetLogger().Debug($"{this.Name} item doesn't exist");
                     return false;
                 }
+                LogHelper.GetLogger().Debug($"{this.Name} item exists");
                 return true;
                 
             }
@@ -62,13 +65,13 @@ namespace TestingFramework.WindowsUI.Items
         
         public void Click()
         {
-            //log
+            LogHelper.GetLogger().Debug($"-Clicked {this.Name}");
             UIItem.Click();
         }
 
         public void RightClick()
         {
-            //log
+            LogHelper.GetLogger().Debug($"-Right Clicked {this.Name}");
             UIItem.RightClick();
         }
 
