@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestingFramework.Logging;
-
-[assembly: log4net.Config.XmlConfigurator(Watch =true)]
+﻿using System.Windows.Forms;
+using TestingFramework.Framework;
+using TestingFramework.Framework.Items;
+using TestStack.White;
+using TestStack.White.UIItems.Finders;
 namespace TestingFramework
 {
     internal class Program
     {
-        private static readonly log4net.ILog log = Logging.LogHelper.GetLogger();
         static void Main(string[] args)
         {
-            LogHelper.GetLogger().Debug("aaa");
+            ApplicationController.StartApplication("C:\\Program Files\\OldClassicCalc\\calc1.exe");
+            TFButton button = new TFButton(SearchCriteria.ByAutomationId("131"), "Calculator", "1Button");
+            button.Click();
         }
     }
 }
