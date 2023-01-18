@@ -5,10 +5,15 @@ namespace TestingFramework.Framework.Items
 {
     public class TFButton : TFItem<Button>
     {
-        public TFButton(SearchCriteria searchCriteria, string windowName, string friendlyName)
-            : base(searchCriteria, windowName, friendlyName)
+        public TFButton()
+            : base()
         {
-            LogWriter.GetLogger().Debug("{friendlyName} button captured", friendlyName);
+        }
+
+        public new TFButton GetItem(SearchCriteria searchCriteria, string windowName, string friendlyName)
+        {
+            LogWriter.GetLogger().Debug("Captured {friendlyName} button", friendlyName);
+            return (TFButton)base.GetItem(searchCriteria, windowName, friendlyName);
         }
 
         public new void Click()

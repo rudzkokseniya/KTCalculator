@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestStack.White.UIItems;
+﻿using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 
 namespace TestingFramework.Framework.Items
 {
     public class TFLabel : TFItem<Label>
     {
-        public TFLabel(SearchCriteria searchCriteria, string windowName, string friendlyName)
-            : base(searchCriteria, windowName, friendlyName)
+        public TFLabel()
+            : base()
         {
-            LogWriter.GetLogger().Debug("{friendlyName} button captured", friendlyName);
+        }
+
+        public new TFLabel GetItem(SearchCriteria searchCriteria, string windowName, string friendlyName)
+        {
+            LogWriter.GetLogger().Debug("Captured {friendlyName} label", friendlyName);
+            return (TFLabel)base.GetItem(searchCriteria, windowName, friendlyName);
         }
 
         public new string GetName()

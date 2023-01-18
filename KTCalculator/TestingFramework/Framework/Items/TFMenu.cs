@@ -5,10 +5,15 @@ namespace TestingFramework.Framework.Items
 {
     public class TFMenu : TFItem<Menu>
     {
-        public TFMenu(SearchCriteria searchCriteria, string windowName, string friendlyName)
-            : base(searchCriteria, windowName, friendlyName)
+        public TFMenu()
+            : base()
         {
-            LogWriter.GetLogger().Debug("{friendlyName} menu item captured", friendlyName);
+        }
+
+        public new TFMenu GetItem(SearchCriteria searchCriteria, string windowName, string friendlyName)
+        {
+            LogWriter.GetLogger().Debug("Captured {friendlyName} menu", friendlyName);
+            return (TFMenu)base.GetItem(searchCriteria, windowName, friendlyName);
         }
         public new void Click()
         {

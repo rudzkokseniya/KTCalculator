@@ -1,4 +1,5 @@
-﻿using TestStack.White.UIItems;
+﻿using TestingFramework.Framework.Helpers;
+using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 
 namespace TestingFramework.Framework.Items
@@ -8,16 +9,15 @@ namespace TestingFramework.Framework.Items
         protected T uiItem;
         protected string friendlyName;
 
-        protected TFItem(SearchCriteria searchCriteria, string windowName, string friendlyName)
+        protected TFItem()
         {
-            this.friendlyName = friendlyName;
-            GetItem(searchCriteria, windowName);
         }
 
-        protected TFItem<T> GetItem(SearchCriteria searchCriteria, string windowName)
+        protected TFItem<T> GetItem(SearchCriteria searchCriteria, string windowName, string friendlyName)
         {
-            var window = ApplicationController.GetWindow(windowName);
+            var window = WindowHelper.GetWindow(windowName);
             uiItem = window.Get<T>(searchCriteria);
+            this.friendlyName = friendlyName;
             return this;
         }
 

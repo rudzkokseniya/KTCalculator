@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using TestStack.White;
-using TestStack.White.Factory;
-using TestStack.White.UIItems.WindowItems;
 
 namespace TestingFramework.Framework
 {
@@ -32,41 +29,9 @@ namespace TestingFramework.Framework
             LogWriter.GetLogger().Debug("Application closed");
         }
 
-        public static Window GetWindow(string windowName)
+        public static Application GetApplication()
         {
-            try
-            {
-                LogWriter.GetLogger().Debug("Capturing window {windowName}", windowName);
-                var window = application.GetWindow(windowName);
-                LogWriter.GetLogger().Debug("Captured window {windowName}", windowName);
-                return window;
-            }
-            catch (NullReferenceException exception)
-            {
-                if(application == null)
-                {
-                    LogWriter.GetLogger().Error("Application not initialized");
-                    throw exception;
-                }
-                else
-                {
-                    LogWriter.GetLogger().Error("Window {windowName} not found", windowName);
-                    throw exception;
-                }
-            }
-        }
-
-        public static List<Window> GetWindows()
-        {
-            try
-            {
-                var windows = application.GetWindows();
-                return windows;
-            }catch(NullReferenceException exception)
-            {
-                throw exception;
-            }
-
+            return application;
         }
     }
 }
