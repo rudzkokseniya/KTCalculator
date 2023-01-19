@@ -1,4 +1,5 @@
-﻿using TestingFramework.Framework.Helpers;
+﻿using System;
+using TestingFramework.Framework.Helpers;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 
@@ -16,7 +17,14 @@ namespace TestingFramework.Framework.Items
         protected TFItem<T> GetItem(SearchCriteria searchCriteria, string windowName, string friendlyName)
         {
             var window = WindowHelper.GetWindow(windowName);
-            uiItem = window.Get<T>(searchCriteria);
+            try
+            {
+                uiItem = window.Get<T>(searchCriteria);
+            }catch(Exception ex)
+            {
+                LogWriter.GetLogger().Error("Failed to capture object {friendlyName}", friendlyName);
+                LogWriter.GetLogger().Debug(ex);
+            }
             this.friendlyName = friendlyName;
             return this;
         }

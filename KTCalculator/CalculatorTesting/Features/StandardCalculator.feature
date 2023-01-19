@@ -7,7 +7,8 @@ Background:
 	Given The calculator application is started
 
 Scenario: TestStandardCalculator
-	When I input 12 into calculator
+	When I select Standard calculator view
+	    And I input 12 into calculator
 		And I add 999 to current result
 	Then 1011 is displayed as result
 

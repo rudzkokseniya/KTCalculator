@@ -12,13 +12,21 @@ namespace TestingFramework.Framework.Items
 
         public new TFMenu GetItem(SearchCriteria searchCriteria, string windowName, string friendlyName)
         {
-            LogWriter.GetLogger().Debug("Captured {friendlyName} menu", friendlyName);
+            LogWriter.GetLogger().Debug("Capturing {friendlyName} menu", friendlyName);
             return (TFMenu)base.GetItem(searchCriteria, windowName, friendlyName);
         }
+
+        public TFMenu GetItemByPath(Menu menu, string friendlyName)
+        {
+            this.uiItem = menu;
+            this.friendlyName = friendlyName;
+            return this;
+        }
+
         public new void Click()
         {
-            LogWriter.GetLogger().Debug("{friendlyName} menu item clicked", friendlyName);
             base.Click();
+            LogWriter.GetLogger().Debug("{friendlyName} menu item clicked", friendlyName);
         }
     }
 }

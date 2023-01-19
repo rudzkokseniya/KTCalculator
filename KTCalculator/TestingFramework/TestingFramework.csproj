@@ -112,6 +112,7 @@
     <Compile Include="Framework\Items\TFItem.cs" />
     <Compile Include="Framework\Items\TFLabel.cs" />
     <Compile Include="Framework\Items\TFMenu.cs" />
+    <Compile Include="Framework\Items\TFMenuBar.cs" />
     <Compile Include="Framework\LogWriter.cs" />
     <Compile Include="Framework\Waiter.cs" />
     <Compile Include="Program.cs" />
