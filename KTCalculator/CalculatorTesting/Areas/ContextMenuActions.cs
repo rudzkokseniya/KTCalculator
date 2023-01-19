@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TestingFramework.Framework;
 
 namespace CalculatorTesting.Areas
 {
@@ -16,6 +12,7 @@ namespace CalculatorTesting.Areas
         public void SelectViewItem(string name)
         {
             ViewMenuItem(name).Click();
+            Waiter.Wait(250);
         }
     }
 }

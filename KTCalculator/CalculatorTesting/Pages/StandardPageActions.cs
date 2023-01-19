@@ -10,13 +10,14 @@ namespace Testing.Pages
             {
                 if (Char.IsDigit(character))
                 {
-                    DigitButton(character).Click();
+                    DigitButtons.Find(b => Char.Parse(b.GetName()) == character).Click();
                 }
                 else if(character == '.')
                 {
                     DecimalSeparatorButton.Click();
                 }
             }
+
         }
 
         public void AddNumber(string numberAsString)

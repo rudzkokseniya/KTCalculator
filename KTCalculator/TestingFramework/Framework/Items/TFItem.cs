@@ -5,13 +5,17 @@ using TestStack.White.UIItems.Finders;
 
 namespace TestingFramework.Framework.Items
 {
-    public abstract class TFItem<T> where T : UIItem
+    public class TFItem<T> where T : UIItem
     {
         protected T uiItem;
         protected string friendlyName;
 
         protected TFItem()
         {
+        }
+        protected TFItem(UIItem uiItem)
+        {
+            this.uiItem = (T)uiItem;
         }
 
         protected TFItem<T> GetItem(SearchCriteria searchCriteria, string windowName, string friendlyName)
@@ -37,6 +41,11 @@ namespace TestingFramework.Framework.Items
         protected void Click()
         {
             uiItem.Click();
+        }
+
+        public UIItem Item()
+        {
+            return uiItem;
         }
     }
 }
