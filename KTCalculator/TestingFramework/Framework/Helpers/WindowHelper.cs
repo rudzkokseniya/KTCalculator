@@ -9,7 +9,7 @@ namespace TestingFramework.Framework.Helpers
         {
             try
             {
-                var window = ApplicationController.GetApplication().GetWindow(windowName);
+                var window = ApplicationController.Get().GetApplication().GetWindow(windowName);
                 LogWriter.GetLogger().Debug("Captured window {windowName}", windowName);
                 return window;
             }

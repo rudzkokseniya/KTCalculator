@@ -9,7 +9,7 @@ namespace CalculatorTesting.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-            ApplicationController.StopApplication();
+            ApplicationController.Get().StopApplication();
         }
     }
 }

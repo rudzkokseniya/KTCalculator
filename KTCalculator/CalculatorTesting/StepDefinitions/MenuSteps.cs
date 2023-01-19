@@ -13,11 +13,5 @@ namespace Testing.StepDefinitions
             page.OpenView();
             page.SelectViewItem(view);
         }
-
-        [Then("(.*) calculator view is selected")]
-        public void ThenViewSelected()
-        {
-
-        }
     }
 }

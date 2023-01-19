@@ -10,10 +10,6 @@ namespace TestingFramework
     {
         static void Main(string[] args)
         {
-            ProcessHelper.KillAll("calc1");
-            ApplicationController.StartApplication("C:\\Program Files\\OldClassicCalc\\calc1.exe");
-            TFButton button = new TFButton().GetItem(SearchCriteria.ByAutomationId("131"), "Calculator", "1Button");
-            button.Click();
         }
     }
 }

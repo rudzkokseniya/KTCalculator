@@ -10,7 +10,7 @@ namespace Testing.StepDefinitions
         [Given("The calculator application is started")]
         public void GivenCalculatorAppStart()
         {
-            ApplicationController.StartApplication(Constants.CALCULATOR_PATH);
+            ApplicationController.Get().StartApplication(Constants.CALCULATOR_PATH);
         }
     }
 }

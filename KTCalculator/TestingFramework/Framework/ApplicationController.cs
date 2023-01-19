@@ -3,11 +3,16 @@ using TestStack.White;
 
 namespace TestingFramework.Framework
 {
-    public static class ApplicationController
+    public class ApplicationController
     {
-        private static Application application = null;
 
-        public static void StartApplication(string applicationPath)
+        private static ApplicationController controller;
+
+        private Application application = null;
+        ApplicationController() {
+
+        }
+        public void StartApplication(string applicationPath)
         {
             LogWriter.GetLogger().Debug("Starting application {path}", applicationPath);
 
@@ -22,16 +27,24 @@ namespace TestingFramework.Framework
             }
         }
 
-        public static void StopApplication()
+        public void StopApplication()
         {
-            LogWriter.GetLogger().Debug("Application closing");
             application.Close();
             LogWriter.GetLogger().Debug("Application closed");
         }
 
-        public static Application GetApplication()
+        public  Application GetApplication()
         {
             return application;
+        }
+
+        public static ApplicationController Get()
+        {
+            if(controller == null)
+            {
+                controller = new ApplicationController();  
+            }
+            return controller;
         }
     }
 }
